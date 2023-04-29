@@ -45,7 +45,7 @@ requirements:
     - numpy
     - numba
     - opencv
-    - pillow>9.1.0
+    - pillow >9.1.0
     - pyasn1
     - pybob >=0.26.2
     - python >=3.10
