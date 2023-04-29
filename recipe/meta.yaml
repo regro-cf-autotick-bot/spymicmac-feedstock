@@ -49,7 +49,7 @@ requirements:
     - pyasn1
     - pybob >=0.26.2
     - python >=3.10
-    - scikit-image >=0.19   
+    - scikit-image >=0.19,<0.20.0   
     - scipy
     - shapely
     - usgs
