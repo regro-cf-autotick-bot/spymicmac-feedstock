@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "spymicmac" %}
 {% set version = "0.2.0" %}
 
@@ -6,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f05b3c9b8948433e2a94d3b9416b59ea2ebcc68f49396f2e9781b3e08e508900
 
 build:
@@ -29,12 +30,12 @@ build:
     - "remove_measures = spymicmac.tools.remove_measures:main"
     - "resample_hexagon = spymicmac.tools.resample_hexagon:main"
     - "write_micmac_xml = spymicmac.tools.write_micmac_xml:main"
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
   run:
     - earthengine-api
@@ -48,7 +49,7 @@ requirements:
     - pillow >9.1.0
     - pyasn1
     - pybob >=0.26.2
-    - python >=3.10
+    - python >={{ python_min }}
     - scikit-image >=0.19,<0.20.0   
     - scipy
     - shapely
@@ -59,6 +60,7 @@ test:
     - spymicmac
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/iamdonovan/sPyMicMac
